@@ -17,6 +17,8 @@
             $(document).on('pjax:end', function() {
                 NProgress.done();
                 self.siteBootUp();
+                // Fixing popover persist problem
+                $('.popover').remove();
             });
             $(document).on('pjax:complete', function() {
                 original_title = document.title;
@@ -355,9 +357,6 @@
                 .attr('style','cursor:pointer;')
                 .click(function() {
                     var that = $(this);
-                    if ($(this).attr('data-method') == 'post') {
-                        $(this).find("form").submit();
-                    }
                     if ($(this).attr('data-method') == 'delete') {
                         swal({
                             title: "",
@@ -369,6 +368,21 @@
                         }, function() {
                             that.find("form").submit();
                         });
+                    }
+                    if ($(this).attr('data-btn') == 'transform-button') {
+                        swal({
+                            title: "",
+                            text: "确定要把此话题转换为专栏文章？",
+                            type: "warning",
+                            showCancelButton: true,
+                            cancelButtonText: "取消",
+                            confirmButtonText: "转为文章"
+                        }, function() {
+                            that.find("form").submit();
+                        });
+                    }
+                    if ($(this).attr('data-method') == 'post') {
+                        $(this).find("form").submit();
                     }
                 });
            // attr('onclick',' if (confirm("Are you sure want to proceed?")) { $(this).find("form").submit(); };');
@@ -503,6 +517,7 @@
                 var delTpl = '';
                 var voteTpl = '';
                 var introTpl = '';
+                var badgeTpl = '';
                 var total = $('.replies .total b');
 
                 count = replies.find('li').length + 1;
@@ -527,11 +542,16 @@
                             if (data.reply.user.introduction) {
                                 introTpl = '，' + data.reply.user.introduction;
                             }
+                            if (Config.user_badge) {
+                                badgeTpl = '<div>\
+                                    <a class="label label-success role" href="' + Config.user_badge_link + '">' + Config.user_badge +'</a>\
+                                </div>';
+                            }
 
                             tpl = '<li class="list-group-item media" style="margin-top: 0px;">\
-                                <div class="avatar pull-left">\
-                                    <a href="/users/' + data.reply.user_id + '"><img class="media-object img-thumbnail avatar" alt="' + data.reply.user.name + '" src="' + data.reply.user.image_url + '" style="width:48px;height:48px;"></a>\
-                                </div>\
+                                <div class="avatar avatar-container pull-left">\
+                                    <a href="/users/' + data.reply.user_id + '"><img class="media-object img-thumbnail avatar" alt="' + data.reply.user.name + '" src="' + data.reply.user.image_url + '" style="width:55px;height:55px;"></a>\
+                                ' + badgeTpl +'</div>\
                                 <div class="infos">\
                                     <div class="media-heading">\
                                         <a href="/users/' + data.reply.user_id + '" title="' + data.reply.user.name + '" class="remove-padding-left author">' + data.reply.user.name + '</a>\

@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.markdown-body, .markdown-reply {
+.editor-preview-active-side, .editor-preview, .markdown-body, .markdown-reply {
   font-size: 16px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -7,58 +7,78 @@
   overflow: hidden;
   line-height: 1.6;
   word-wrap: break-word; }
-  .markdown-body a, .markdown-reply a {
+  .editor-preview-active-side a, .editor-preview a, .markdown-body a, .markdown-reply a {
     background: transparent; }
-  .markdown-body a:active,
+  .editor-preview-active-side a:active,
+  .editor-preview-active-side a:hover, .editor-preview a:active,
+  .editor-preview a:hover, .markdown-body a:active,
   .markdown-body a:hover, .markdown-reply a:active,
   .markdown-reply a:hover {
     outline: 0; }
-  .markdown-body ol li, .markdown-reply ol li {
+  .editor-preview-active-side ol li, .editor-preview ol li, .markdown-body ol li, .markdown-reply ol li {
     margin: 8px 0; }
-  .markdown-body pre[class*=language-], .markdown-reply pre[class*=language-] {
+  .editor-preview-active-side pre[class*=language-], .editor-preview pre[class*=language-], .markdown-body pre[class*=language-], .markdown-reply pre[class*=language-] {
     margin: 1.2em 0 !important; }
-  .markdown-body strong, .markdown-reply strong {
+  .editor-preview-active-side strong, .editor-preview strong, .markdown-body strong, .markdown-reply strong {
     font-weight: bold; }
-  .markdown-body h1, .markdown-reply h1 {
+  .editor-preview-active-side h1, .editor-preview h1, .markdown-body h1, .markdown-reply h1 {
     font-size: 2em;
     margin: 0.67em 0; }
-  .markdown-body img, .markdown-reply img {
+  .editor-preview-active-side img, .editor-preview img, .markdown-body img, .markdown-reply img {
     border: 0; }
-  .markdown-body hr, .markdown-reply hr {
+  .editor-preview-active-side hr, .editor-preview hr, .markdown-body hr, .markdown-reply hr {
     box-sizing: content-box;
     height: 0; }
-  .markdown-body table, .markdown-reply table {
+  .editor-preview-active-side table, .editor-preview table, .markdown-body table, .markdown-reply table {
     border-collapse: collapse;
     border-spacing: 0; }
-  .markdown-body td,
+  .editor-preview-active-side td,
+  .editor-preview-active-side th, .editor-preview td,
+  .editor-preview th, .markdown-body td,
   .markdown-body th, .markdown-reply td,
   .markdown-reply th {
     padding: 0; }
-  .markdown-body *, .markdown-reply * {
+  .editor-preview-active-side *, .editor-preview *, .markdown-body *, .markdown-reply * {
     box-sizing: border-box; }
-  .markdown-body a, .markdown-reply a {
+  .editor-preview-active-side a, .editor-preview a, .markdown-body a, .markdown-reply a {
     text-decoration: none; }
-  .markdown-body a:hover,
+  .editor-preview-active-side a:hover,
+  .editor-preview-active-side a:focus,
+  .editor-preview-active-side a:active, .editor-preview a:hover,
+  .editor-preview a:focus,
+  .editor-preview a:active, .markdown-body a:hover,
   .markdown-body a:focus,
   .markdown-body a:active, .markdown-reply a:hover,
   .markdown-reply a:focus,
   .markdown-reply a:active {
     text-decoration: none; }
-  .markdown-body hr, .markdown-reply hr {
+  .editor-preview-active-side hr, .editor-preview hr, .markdown-body hr, .markdown-reply hr {
     height: 0;
     margin: 15px 0;
     overflow: hidden;
     background: transparent;
     border: 0;
     border-bottom: 1px solid #ddd; }
-  .markdown-body hr:before,
+  .editor-preview-active-side hr:before,
+  .editor-preview-active-side hr:after, .editor-preview hr:before,
+  .editor-preview hr:after, .markdown-body hr:before,
   .markdown-body hr:after, .markdown-reply hr:before,
   .markdown-reply hr:after {
     display: table;
     content: " "; }
-  .markdown-body hr:after, .markdown-reply hr:after {
+  .editor-preview-active-side hr:after, .editor-preview hr:after, .markdown-body hr:after, .markdown-reply hr:after {
     clear: both; }
-  .markdown-body h1,
+  .editor-preview-active-side h1,
+  .editor-preview-active-side h2,
+  .editor-preview-active-side h3,
+  .editor-preview-active-side h4,
+  .editor-preview-active-side h5,
+  .editor-preview-active-side h6, .editor-preview h1,
+  .editor-preview h2,
+  .editor-preview h3,
+  .editor-preview h4,
+  .editor-preview h5,
+  .editor-preview h6, .markdown-body h1,
   .markdown-body h2,
   .markdown-body h3,
   .markdown-body h4,
@@ -72,44 +92,48 @@
     margin-top: 15px;
     margin-bottom: 15px;
     line-height: 1.1; }
-  .markdown-body h1, .markdown-reply h1 {
+  .editor-preview-active-side h1, .editor-preview h1, .markdown-body h1, .markdown-reply h1 {
     font-size: 30px; }
-  .markdown-body h2, .markdown-reply h2 {
+  .editor-preview-active-side h2, .editor-preview h2, .markdown-body h2, .markdown-reply h2 {
     font-size: 21px; }
-  .markdown-body h3, .markdown-reply h3 {
+  .editor-preview-active-side h3, .editor-preview h3, .markdown-body h3, .markdown-reply h3 {
     font-size: 16px; }
-  .markdown-body h4, .markdown-reply h4 {
+  .editor-preview-active-side h4, .editor-preview h4, .markdown-body h4, .markdown-reply h4 {
     font-size: 14px; }
-  .markdown-body h5, .markdown-reply h5 {
+  .editor-preview-active-side h5, .editor-preview h5, .markdown-body h5, .markdown-reply h5 {
     font-size: 12px; }
-  .markdown-body h6, .markdown-reply h6 {
+  .editor-preview-active-side h6, .editor-preview h6, .markdown-body h6, .markdown-reply h6 {
     font-size: 11px; }
-  .markdown-body blockquote, .markdown-reply blockquote {
+  .editor-preview-active-side blockquote, .editor-preview blockquote, .markdown-body blockquote, .markdown-reply blockquote {
     margin: 0; }
-  .markdown-body ul,
+  .editor-preview-active-side ul,
+  .editor-preview-active-side ol, .editor-preview ul,
+  .editor-preview ol, .markdown-body ul,
   .markdown-body ol, .markdown-reply ul,
   .markdown-reply ol {
     padding: 0;
     margin-top: 0;
     margin-bottom: 0; }
-  .markdown-body ol ol, .markdown-reply ol ol {
+  .editor-preview-active-side ol ol, .editor-preview ol ol, .markdown-body ol ol, .markdown-reply ol ol {
     list-style-type: lower-roman; }
-  .markdown-body dd, .markdown-reply dd {
+  .editor-preview-active-side dd, .editor-preview dd, .markdown-body dd, .markdown-reply dd {
     margin-left: 0; }
-  .markdown-body code,
+  .editor-preview-active-side code,
+  .editor-preview-active-side pre, .editor-preview code,
+  .editor-preview pre, .markdown-body code,
   .markdown-body pre, .markdown-reply code,
   .markdown-reply pre {
     font-family: monaco, Consolas, "Liberation Mono", Menlo, Courier, monospace;
     font-size: 1em; }
-  .markdown-body pre, .markdown-reply pre {
+  .editor-preview-active-side pre, .editor-preview pre, .markdown-body pre, .markdown-reply pre {
     margin-top: 0;
     margin-bottom: 0;
     overflow: auto; }
-  .markdown-body .markdown-body > *:first-child, .markdown-reply .markdown-body > *:first-child {
+  .editor-preview-active-side .markdown-body > *:first-child, .editor-preview .markdown-body > *:first-child, .markdown-body .markdown-body > *:first-child, .markdown-reply .markdown-body > *:first-child {
     margin-top: 0 !important; }
-  .markdown-body .markdown-body > *:last-child, .markdown-reply .markdown-body > *:last-child {
+  .editor-preview-active-side .markdown-body > *:last-child, .editor-preview .markdown-body > *:last-child, .markdown-body .markdown-body > *:last-child, .markdown-reply .markdown-body > *:last-child {
     margin-bottom: 0 !important; }
-  .markdown-body .anchor, .markdown-reply .anchor {
+  .editor-preview-active-side .anchor, .editor-preview .anchor, .markdown-body .anchor, .markdown-reply .anchor {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -118,9 +142,19 @@
     padding-right: 6px;
     padding-left: 30px;
     margin-left: -30px; }
-  .markdown-body .anchor:focus, .markdown-reply .anchor:focus {
+  .editor-preview-active-side .anchor:focus, .editor-preview .anchor:focus, .markdown-body .anchor:focus, .markdown-reply .anchor:focus {
     outline: none; }
-  .markdown-body h1,
+  .editor-preview-active-side h1,
+  .editor-preview-active-side h2,
+  .editor-preview-active-side h3,
+  .editor-preview-active-side h4,
+  .editor-preview-active-side h5,
+  .editor-preview-active-side h6, .editor-preview h1,
+  .editor-preview h2,
+  .editor-preview h3,
+  .editor-preview h4,
+  .editor-preview h5,
+  .editor-preview h6, .markdown-body h1,
   .markdown-body h2,
   .markdown-body h3,
   .markdown-body h4,
@@ -134,29 +168,40 @@
     position: relative;
     margin-top: 1.0em;
     margin-bottom: 16px;
-    font-weight: bold;
     line-height: 1.4; }
-  .markdown-body h1, .markdown-reply h1 {
+  .editor-preview-active-side h1, .editor-preview h1, .markdown-body h1, .markdown-reply h1 {
     padding-bottom: 0.3em;
     font-size: 2.25em;
     line-height: 1.2;
-    border-bottom: 2px solid #eee; }
-  .markdown-body h2, .markdown-reply h2 {
+    border-bottom: 1px solid #eee; }
+  .editor-preview-active-side h2, .editor-preview h2, .markdown-body h2, .markdown-reply h2 {
     padding-bottom: 0.3em;
-    font-size: 1.5em;
+    font-size: 1.3em;
     line-height: 1.225;
-    border-bottom: 2px solid #eee; }
-  .markdown-body h3, .markdown-reply h3 {
-    font-size: 1.4em;
+    border-bottom: 1px solid #eee; }
+  .editor-preview-active-side h3, .editor-preview h3, .markdown-body h3, .markdown-reply h3 {
+    font-size: 1.2em;
     line-height: 1.43; }
-  .markdown-body h4, .markdown-reply h4 {
-    font-size: 1.3em; }
-  .markdown-body h5, .markdown-reply h5 {
-    font-size: 1.2em; }
-  .markdown-body h6, .markdown-reply h6 {
-    font-size: 1.1em;
+  .editor-preview-active-side h4, .editor-preview h4, .markdown-body h4, .markdown-reply h4 {
+    font-size: 1.1em; }
+  .editor-preview-active-side h5, .editor-preview h5, .markdown-body h5, .markdown-reply h5 {
+    font-size: 1.0em; }
+  .editor-preview-active-side h6, .editor-preview h6, .markdown-body h6, .markdown-reply h6 {
+    font-size: 0.9em;
     color: #777; }
-  .markdown-body p,
+  .editor-preview-active-side p,
+  .editor-preview-active-side blockquote,
+  .editor-preview-active-side ul,
+  .editor-preview-active-side ol,
+  .editor-preview-active-side dl,
+  .editor-preview-active-side table,
+  .editor-preview-active-side pre, .editor-preview p,
+  .editor-preview blockquote,
+  .editor-preview ul,
+  .editor-preview ol,
+  .editor-preview dl,
+  .editor-preview table,
+  .editor-preview pre, .markdown-body p,
   .markdown-body blockquote,
   .markdown-body ul,
   .markdown-body ol,
@@ -172,82 +217,92 @@
     margin-top: 0;
     margin-bottom: 10px;
     line-height: 30px; }
-  .markdown-body hr, .markdown-reply hr {
-    height: 4px;
+  .editor-preview-active-side hr, .editor-preview hr, .markdown-body hr, .markdown-reply hr {
+    height: 2px;
     padding: 0;
     margin: 16px 0;
-    background-color: #e7e7e7;
+    background-color: #e8ecef;
     border: 0 none; }
-  .markdown-body ul,
+  .editor-preview-active-side ul,
+  .editor-preview-active-side ol, .editor-preview ul,
+  .editor-preview ol, .markdown-body ul,
   .markdown-body ol, .markdown-reply ul,
   .markdown-reply ol {
-    padding-left: 2em; }
-  .markdown-body ol ol,
+    padding-left: 2em;
+    padding: 10px 20px 10px 30px;
+    color: #7d8688; }
+  .editor-preview-active-side ol ol,
+  .editor-preview-active-side ol ul, .editor-preview ol ol,
+  .editor-preview ol ul, .markdown-body ol ol,
   .markdown-body ol ul, .markdown-reply ol ol,
   .markdown-reply ol ul {
     margin-top: 0;
     margin-bottom: 0; }
-  .markdown-body li > p, .markdown-reply li > p {
+  .editor-preview-active-side li > p, .editor-preview li > p, .markdown-body li > p, .markdown-reply li > p {
     margin-top: 16px; }
-  .markdown-body dl, .markdown-reply dl {
+  .editor-preview-active-side dl, .editor-preview dl, .markdown-body dl, .markdown-reply dl {
     padding: 0; }
-  .markdown-body dl dt, .markdown-reply dl dt {
+  .editor-preview-active-side dl dt, .editor-preview dl dt, .markdown-body dl dt, .markdown-reply dl dt {
     padding: 0;
     margin-top: 16px;
     font-size: 1em;
     font-style: italic;
     font-weight: bold; }
-  .markdown-body dl dd, .markdown-reply dl dd {
+  .editor-preview-active-side dl dd, .editor-preview dl dd, .markdown-body dl dd, .markdown-reply dl dd {
     padding: 0 16px;
     margin-bottom: 16px; }
-  .markdown-body blockquote, .markdown-reply blockquote {
+  .editor-preview-active-side blockquote, .editor-preview blockquote, .markdown-body blockquote, .markdown-reply blockquote {
     font-size: inherit;
     padding: 0 15px;
     color: #777;
     border-left: 4px solid #ddd; }
-  .markdown-body blockquote > :first-child, .markdown-reply blockquote > :first-child {
+  .editor-preview-active-side blockquote > :first-child, .editor-preview blockquote > :first-child, .markdown-body blockquote > :first-child, .markdown-reply blockquote > :first-child {
     margin-top: 20; }
-  .markdown-body blockquote > :last-child, .markdown-reply blockquote > :last-child {
+  .editor-preview-active-side blockquote > :last-child, .editor-preview blockquote > :last-child, .markdown-body blockquote > :last-child, .markdown-reply blockquote > :last-child {
     margin-bottom: 20; }
-  .markdown-body blockquote, .markdown-reply blockquote {
+  .editor-preview-active-side blockquote, .editor-preview blockquote, .markdown-body blockquote, .markdown-reply blockquote {
     margin: 20px 0 !important;
-    background-color: #f7f7f7;
-    padding: 6px 8px; }
-  .markdown-body table, .markdown-reply table {
+    background-color: #f5f8fc;
+    padding: 1rem;
+    color: #8796A8;
+    border-left: none; }
+  .editor-preview-active-side table, .editor-preview table, .markdown-body table, .markdown-reply table {
     display: block;
     width: 100%;
     overflow: auto;
     margin: 25px 0; }
-  .markdown-body table th, .markdown-reply table th {
+  .editor-preview-active-side table th, .editor-preview table th, .markdown-body table th, .markdown-reply table th {
     font-weight: bold; }
-  .markdown-body table th,
+  .editor-preview-active-side table th,
+  .editor-preview-active-side table td, .editor-preview table th,
+  .editor-preview table td, .markdown-body table th,
   .markdown-body table td, .markdown-reply table th,
   .markdown-reply table td {
     padding: 6px 13px;
     border: 1px solid #ddd; }
-  .markdown-body table tr, .markdown-reply table tr {
+  .editor-preview-active-side table tr, .editor-preview table tr, .markdown-body table tr, .markdown-reply table tr {
     background-color: #fff;
     border-top: 1px solid #ccc; }
-  .markdown-body table tr:nth-child(2n), .markdown-reply table tr:nth-child(2n) {
+  .editor-preview-active-side table tr:nth-child(2n), .editor-preview table tr:nth-child(2n), .markdown-body table tr:nth-child(2n), .markdown-reply table tr:nth-child(2n) {
     background-color: #f8f8f8; }
-  .markdown-body img, .markdown-reply img {
+  .editor-preview-active-side img, .editor-preview img, .markdown-body img, .markdown-reply img {
     max-width: 100%;
     box-sizing: border-box; }
-  .markdown-body img:not(.emoji), .markdown-reply img:not(.emoji) {
+  .editor-preview-active-side img:not(.emoji), .editor-preview img:not(.emoji), .markdown-body img:not(.emoji), .markdown-reply img:not(.emoji) {
     border: 1px solid #ddd;
     box-shadow: 0 0 30px #ccc;
     -moz-box-shadow: 0 0 30px #ccc;
     -webkit-box-shadow: 0 0 30px #ccc;
     margin-bottom: 30px;
     margin-top: 10px; }
-  .markdown-body img.rm-style, .markdown-reply img.rm-style {
+  .editor-preview-active-side img.rm-style, .editor-preview img.rm-style, .markdown-body img.rm-style, .markdown-reply img.rm-style {
     border: none;
     box-shadow: none;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     margin-bottom: 0px;
     margin-top: 0px; }
-  .markdown-body code, .markdown-reply code {
+  .editor-preview-active-side code, .editor-preview code, .markdown-body code, .markdown-reply code {
     background: rgba(90, 87, 87, 0);
     margin: 5px;
     color: #858080;
@@ -258,12 +313,14 @@
     overflow-x: auto;
     font-size: .9em;
     padding: 1px 2px 1px; }
-  .markdown-body code:before,
+  .editor-preview-active-side code:before,
+  .editor-preview-active-side code:after, .editor-preview code:before,
+  .editor-preview code:after, .markdown-body code:before,
   .markdown-body code:after, .markdown-reply code:before,
   .markdown-reply code:after {
     letter-spacing: -0.2em;
     content: "\00a0"; }
-  .markdown-body pre > code, .markdown-reply pre > code {
+  .editor-preview-active-side pre > code, .editor-preview pre > code, .markdown-body pre > code, .markdown-reply pre > code {
     padding: 0;
     margin: 0;
     font-size: 100%;
@@ -271,9 +328,11 @@
     background: transparent;
     border: 0;
     color: #E6E8D3; }
-  .markdown-body .highlight, .markdown-reply .highlight {
+  .editor-preview-active-side .highlight, .editor-preview .highlight, .markdown-body .highlight, .markdown-reply .highlight {
     margin-bottom: 16px; }
-  .markdown-body .highlight pre,
+  .editor-preview-active-side .highlight pre,
+  .editor-preview-active-side pre, .editor-preview .highlight pre,
+  .editor-preview pre, .markdown-body .highlight pre,
   .markdown-body pre, .markdown-reply .highlight pre,
   .markdown-reply pre {
     padding: 14px;
@@ -283,11 +342,11 @@
     border-radius: 3px;
     color: #fff;
     border: none; }
-  .markdown-body .highlight pre, .markdown-reply .highlight pre {
+  .editor-preview-active-side .highlight pre, .editor-preview .highlight pre, .markdown-body .highlight pre, .markdown-reply .highlight pre {
     margin-bottom: 0; }
-  .markdown-body pre, .markdown-reply pre {
+  .editor-preview-active-side pre, .editor-preview pre, .markdown-body pre, .markdown-reply pre {
     word-wrap: normal; }
-  .markdown-body pre code, .markdown-reply pre code {
+  .editor-preview-active-side pre code, .editor-preview pre code, .markdown-body pre code, .markdown-reply pre code {
     display: block;
     padding: 0;
     margin: 0;
@@ -296,151 +355,153 @@
     word-wrap: normal;
     background-color: transparent;
     border: 0; }
-  .markdown-body pre code:before,
+  .editor-preview-active-side pre code:before,
+  .editor-preview-active-side pre code:after, .editor-preview pre code:before,
+  .editor-preview pre code:after, .markdown-body pre code:before,
   .markdown-body pre code:after, .markdown-reply pre code:before,
   .markdown-reply pre code:after {
     content: normal; }
-  .markdown-body .highlight, .markdown-reply .highlight {
+  .editor-preview-active-side .highlight, .editor-preview .highlight, .markdown-body .highlight, .markdown-reply .highlight {
     background: #ffffff; }
-  .markdown-body .highlight .c, .markdown-reply .highlight .c {
+  .editor-preview-active-side .highlight .c, .editor-preview .highlight .c, .markdown-body .highlight .c, .markdown-reply .highlight .c {
     color: #999988;
     font-style: italic; }
-  .markdown-body .highlight .err, .markdown-reply .highlight .err {
+  .editor-preview-active-side .highlight .err, .editor-preview .highlight .err, .markdown-body .highlight .err, .markdown-reply .highlight .err {
     color: #a61717;
     background-color: #e3d2d2; }
-  .markdown-body .highlight .k, .markdown-reply .highlight .k {
+  .editor-preview-active-side .highlight .k, .editor-preview .highlight .k, .markdown-body .highlight .k, .markdown-reply .highlight .k {
     font-weight: bold; }
-  .markdown-body .highlight .o, .markdown-reply .highlight .o {
+  .editor-preview-active-side .highlight .o, .editor-preview .highlight .o, .markdown-body .highlight .o, .markdown-reply .highlight .o {
     font-weight: bold; }
-  .markdown-body .highlight .cm, .markdown-reply .highlight .cm {
+  .editor-preview-active-side .highlight .cm, .editor-preview .highlight .cm, .markdown-body .highlight .cm, .markdown-reply .highlight .cm {
     color: #999988;
     font-style: italic; }
-  .markdown-body .highlight .cp, .markdown-reply .highlight .cp {
+  .editor-preview-active-side .highlight .cp, .editor-preview .highlight .cp, .markdown-body .highlight .cp, .markdown-reply .highlight .cp {
     color: #999999;
     font-weight: bold; }
-  .markdown-body .highlight .c1, .markdown-reply .highlight .c1 {
+  .editor-preview-active-side .highlight .c1, .editor-preview .highlight .c1, .markdown-body .highlight .c1, .markdown-reply .highlight .c1 {
     color: #999988;
     font-style: italic; }
-  .markdown-body .highlight .cs, .markdown-reply .highlight .cs {
+  .editor-preview-active-side .highlight .cs, .editor-preview .highlight .cs, .markdown-body .highlight .cs, .markdown-reply .highlight .cs {
     color: #999999;
     font-weight: bold;
     font-style: italic; }
-  .markdown-body .highlight .gd, .markdown-reply .highlight .gd {
+  .editor-preview-active-side .highlight .gd, .editor-preview .highlight .gd, .markdown-body .highlight .gd, .markdown-reply .highlight .gd {
     color: #000000;
     background-color: #ffdddd; }
-  .markdown-body .highlight .gd .x, .markdown-reply .highlight .gd .x {
+  .editor-preview-active-side .highlight .gd .x, .editor-preview .highlight .gd .x, .markdown-body .highlight .gd .x, .markdown-reply .highlight .gd .x {
     color: #000000;
     background-color: #ffaaaa; }
-  .markdown-body .highlight .ge, .markdown-reply .highlight .ge {
+  .editor-preview-active-side .highlight .ge, .editor-preview .highlight .ge, .markdown-body .highlight .ge, .markdown-reply .highlight .ge {
     font-style: italic; }
-  .markdown-body .highlight .gr, .markdown-reply .highlight .gr {
+  .editor-preview-active-side .highlight .gr, .editor-preview .highlight .gr, .markdown-body .highlight .gr, .markdown-reply .highlight .gr {
     color: #aa0000; }
-  .markdown-body .highlight .gh, .markdown-reply .highlight .gh {
+  .editor-preview-active-side .highlight .gh, .editor-preview .highlight .gh, .markdown-body .highlight .gh, .markdown-reply .highlight .gh {
     color: #999999; }
-  .markdown-body .highlight .gi, .markdown-reply .highlight .gi {
+  .editor-preview-active-side .highlight .gi, .editor-preview .highlight .gi, .markdown-body .highlight .gi, .markdown-reply .highlight .gi {
     color: #000000;
     background-color: #ddffdd; }
-  .markdown-body .highlight .gi .x, .markdown-reply .highlight .gi .x {
+  .editor-preview-active-side .highlight .gi .x, .editor-preview .highlight .gi .x, .markdown-body .highlight .gi .x, .markdown-reply .highlight .gi .x {
     color: #000000;
     background-color: #aaffaa; }
-  .markdown-body .highlight .go, .markdown-reply .highlight .go {
+  .editor-preview-active-side .highlight .go, .editor-preview .highlight .go, .markdown-body .highlight .go, .markdown-reply .highlight .go {
     color: #888888; }
-  .markdown-body .highlight .gp, .markdown-reply .highlight .gp {
+  .editor-preview-active-side .highlight .gp, .editor-preview .highlight .gp, .markdown-body .highlight .gp, .markdown-reply .highlight .gp {
     color: #555555; }
-  .markdown-body .highlight .gs, .markdown-reply .highlight .gs {
+  .editor-preview-active-side .highlight .gs, .editor-preview .highlight .gs, .markdown-body .highlight .gs, .markdown-reply .highlight .gs {
     font-weight: bold; }
-  .markdown-body .highlight .gu, .markdown-reply .highlight .gu {
+  .editor-preview-active-side .highlight .gu, .editor-preview .highlight .gu, .markdown-body .highlight .gu, .markdown-reply .highlight .gu {
     color: #800080;
     font-weight: bold; }
-  .markdown-body .highlight .gt, .markdown-reply .highlight .gt {
+  .editor-preview-active-side .highlight .gt, .editor-preview .highlight .gt, .markdown-body .highlight .gt, .markdown-reply .highlight .gt {
     color: #aa0000; }
-  .markdown-body .highlight .kc, .markdown-reply .highlight .kc {
+  .editor-preview-active-side .highlight .kc, .editor-preview .highlight .kc, .markdown-body .highlight .kc, .markdown-reply .highlight .kc {
     font-weight: bold; }
-  .markdown-body .highlight .kd, .markdown-reply .highlight .kd {
+  .editor-preview-active-side .highlight .kd, .editor-preview .highlight .kd, .markdown-body .highlight .kd, .markdown-reply .highlight .kd {
     font-weight: bold; }
-  .markdown-body .highlight .kn, .markdown-reply .highlight .kn {
+  .editor-preview-active-side .highlight .kn, .editor-preview .highlight .kn, .markdown-body .highlight .kn, .markdown-reply .highlight .kn {
     font-weight: bold; }
-  .markdown-body .highlight .kp, .markdown-reply .highlight .kp {
+  .editor-preview-active-side .highlight .kp, .editor-preview .highlight .kp, .markdown-body .highlight .kp, .markdown-reply .highlight .kp {
     font-weight: bold; }
-  .markdown-body .highlight .kr, .markdown-reply .highlight .kr {
+  .editor-preview-active-side .highlight .kr, .editor-preview .highlight .kr, .markdown-body .highlight .kr, .markdown-reply .highlight .kr {
     font-weight: bold; }
-  .markdown-body .highlight .kt, .markdown-reply .highlight .kt {
+  .editor-preview-active-side .highlight .kt, .editor-preview .highlight .kt, .markdown-body .highlight .kt, .markdown-reply .highlight .kt {
     color: #445588;
     font-weight: bold; }
-  .markdown-body .highlight .m, .markdown-reply .highlight .m {
+  .editor-preview-active-side .highlight .m, .editor-preview .highlight .m, .markdown-body .highlight .m, .markdown-reply .highlight .m {
     color: #009999; }
-  .markdown-body .highlight .s, .markdown-reply .highlight .s {
+  .editor-preview-active-side .highlight .s, .editor-preview .highlight .s, .markdown-body .highlight .s, .markdown-reply .highlight .s {
     color: #dd1144; }
-  .markdown-body .highlight .n, .markdown-reply .highlight .n {
+  .editor-preview-active-side .highlight .n, .editor-preview .highlight .n, .markdown-body .highlight .n, .markdown-reply .highlight .n {
     color: #333333; }
-  .markdown-body .highlight .na, .markdown-reply .highlight .na {
+  .editor-preview-active-side .highlight .na, .editor-preview .highlight .na, .markdown-body .highlight .na, .markdown-reply .highlight .na {
     color: teal; }
-  .markdown-body .highlight .nb, .markdown-reply .highlight .nb {
+  .editor-preview-active-side .highlight .nb, .editor-preview .highlight .nb, .markdown-body .highlight .nb, .markdown-reply .highlight .nb {
     color: #0086b3; }
-  .markdown-body .highlight .nc, .markdown-reply .highlight .nc {
+  .editor-preview-active-side .highlight .nc, .editor-preview .highlight .nc, .markdown-body .highlight .nc, .markdown-reply .highlight .nc {
     color: #445588;
     font-weight: bold; }
-  .markdown-body .highlight .no, .markdown-reply .highlight .no {
+  .editor-preview-active-side .highlight .no, .editor-preview .highlight .no, .markdown-body .highlight .no, .markdown-reply .highlight .no {
     color: teal; }
-  .markdown-body .highlight .ni, .markdown-reply .highlight .ni {
+  .editor-preview-active-side .highlight .ni, .editor-preview .highlight .ni, .markdown-body .highlight .ni, .markdown-reply .highlight .ni {
     color: purple; }
-  .markdown-body .highlight .ne, .markdown-reply .highlight .ne {
+  .editor-preview-active-side .highlight .ne, .editor-preview .highlight .ne, .markdown-body .highlight .ne, .markdown-reply .highlight .ne {
     color: #990000;
     font-weight: bold; }
-  .markdown-body .highlight .nf, .markdown-reply .highlight .nf {
+  .editor-preview-active-side .highlight .nf, .editor-preview .highlight .nf, .markdown-body .highlight .nf, .markdown-reply .highlight .nf {
     color: #990000;
     font-weight: bold; }
-  .markdown-body .highlight .nn, .markdown-reply .highlight .nn {
+  .editor-preview-active-side .highlight .nn, .editor-preview .highlight .nn, .markdown-body .highlight .nn, .markdown-reply .highlight .nn {
     color: #555555; }
-  .markdown-body .highlight .nt, .markdown-reply .highlight .nt {
+  .editor-preview-active-side .highlight .nt, .editor-preview .highlight .nt, .markdown-body .highlight .nt, .markdown-reply .highlight .nt {
     color: navy; }
-  .markdown-body .highlight .nv, .markdown-reply .highlight .nv {
+  .editor-preview-active-side .highlight .nv, .editor-preview .highlight .nv, .markdown-body .highlight .nv, .markdown-reply .highlight .nv {
     color: teal; }
-  .markdown-body .highlight .ow, .markdown-reply .highlight .ow {
+  .editor-preview-active-side .highlight .ow, .editor-preview .highlight .ow, .markdown-body .highlight .ow, .markdown-reply .highlight .ow {
     font-weight: bold; }
-  .markdown-body .highlight .w, .markdown-reply .highlight .w {
+  .editor-preview-active-side .highlight .w, .editor-preview .highlight .w, .markdown-body .highlight .w, .markdown-reply .highlight .w {
     color: #bbbbbb; }
-  .markdown-body .highlight .mf, .markdown-reply .highlight .mf {
+  .editor-preview-active-side .highlight .mf, .editor-preview .highlight .mf, .markdown-body .highlight .mf, .markdown-reply .highlight .mf {
     color: #009999; }
-  .markdown-body .highlight .mh, .markdown-reply .highlight .mh {
+  .editor-preview-active-side .highlight .mh, .editor-preview .highlight .mh, .markdown-body .highlight .mh, .markdown-reply .highlight .mh {
     color: #009999; }
-  .markdown-body .highlight .mi, .markdown-reply .highlight .mi {
+  .editor-preview-active-side .highlight .mi, .editor-preview .highlight .mi, .markdown-body .highlight .mi, .markdown-reply .highlight .mi {
     color: #009999; }
-  .markdown-body .highlight .mo, .markdown-reply .highlight .mo {
+  .editor-preview-active-side .highlight .mo, .editor-preview .highlight .mo, .markdown-body .highlight .mo, .markdown-reply .highlight .mo {
     color: #009999; }
-  .markdown-body .highlight .sb, .markdown-reply .highlight .sb {
+  .editor-preview-active-side .highlight .sb, .editor-preview .highlight .sb, .markdown-body .highlight .sb, .markdown-reply .highlight .sb {
     color: #dd1144; }
-  .markdown-body .highlight .sc, .markdown-reply .highlight .sc {
+  .editor-preview-active-side .highlight .sc, .editor-preview .highlight .sc, .markdown-body .highlight .sc, .markdown-reply .highlight .sc {
     color: #dd1144; }
-  .markdown-body .highlight .sd, .markdown-reply .highlight .sd {
+  .editor-preview-active-side .highlight .sd, .editor-preview .highlight .sd, .markdown-body .highlight .sd, .markdown-reply .highlight .sd {
     color: #dd1144; }
-  .markdown-body .highlight .s2, .markdown-reply .highlight .s2 {
+  .editor-preview-active-side .highlight .s2, .editor-preview .highlight .s2, .markdown-body .highlight .s2, .markdown-reply .highlight .s2 {
     color: #dd1144; }
-  .markdown-body .highlight .se, .markdown-reply .highlight .se {
+  .editor-preview-active-side .highlight .se, .editor-preview .highlight .se, .markdown-body .highlight .se, .markdown-reply .highlight .se {
     color: #dd1144; }
-  .markdown-body .highlight .sh, .markdown-reply .highlight .sh {
+  .editor-preview-active-side .highlight .sh, .editor-preview .highlight .sh, .markdown-body .highlight .sh, .markdown-reply .highlight .sh {
     color: #dd1144; }
-  .markdown-body .highlight .si, .markdown-reply .highlight .si {
+  .editor-preview-active-side .highlight .si, .editor-preview .highlight .si, .markdown-body .highlight .si, .markdown-reply .highlight .si {
     color: #dd1144; }
-  .markdown-body .highlight .sx, .markdown-reply .highlight .sx {
+  .editor-preview-active-side .highlight .sx, .editor-preview .highlight .sx, .markdown-body .highlight .sx, .markdown-reply .highlight .sx {
     color: #dd1144; }
-  .markdown-body .highlight .sr, .markdown-reply .highlight .sr {
+  .editor-preview-active-side .highlight .sr, .editor-preview .highlight .sr, .markdown-body .highlight .sr, .markdown-reply .highlight .sr {
     color: #009926; }
-  .markdown-body .highlight .s1, .markdown-reply .highlight .s1 {
+  .editor-preview-active-side .highlight .s1, .editor-preview .highlight .s1, .markdown-body .highlight .s1, .markdown-reply .highlight .s1 {
     color: #dd1144; }
-  .markdown-body .highlight .ss, .markdown-reply .highlight .ss {
+  .editor-preview-active-side .highlight .ss, .editor-preview .highlight .ss, .markdown-body .highlight .ss, .markdown-reply .highlight .ss {
     color: #990073; }
-  .markdown-body .highlight .bp, .markdown-reply .highlight .bp {
+  .editor-preview-active-side .highlight .bp, .editor-preview .highlight .bp, .markdown-body .highlight .bp, .markdown-reply .highlight .bp {
     color: #999999; }
-  .markdown-body .highlight .vc, .markdown-reply .highlight .vc {
+  .editor-preview-active-side .highlight .vc, .editor-preview .highlight .vc, .markdown-body .highlight .vc, .markdown-reply .highlight .vc {
     color: teal; }
-  .markdown-body .highlight .vg, .markdown-reply .highlight .vg {
+  .editor-preview-active-side .highlight .vg, .editor-preview .highlight .vg, .markdown-body .highlight .vg, .markdown-reply .highlight .vg {
     color: teal; }
-  .markdown-body .highlight .vi, .markdown-reply .highlight .vi {
+  .editor-preview-active-side .highlight .vi, .editor-preview .highlight .vi, .markdown-body .highlight .vi, .markdown-reply .highlight .vi {
     color: teal; }
-  .markdown-body .highlight .il, .markdown-reply .highlight .il {
+  .editor-preview-active-side .highlight .il, .editor-preview .highlight .il, .markdown-body .highlight .il, .markdown-reply .highlight .il {
     color: #009999; }
-  .markdown-body .highlight .gc, .markdown-reply .highlight .gc {
+  .editor-preview-active-side .highlight .gc, .editor-preview .highlight .gc, .markdown-body .highlight .gc, .markdown-reply .highlight .gc {
     color: #999;
     background-color: #EAF2F5; }
 
@@ -603,7 +664,7 @@ pre[class*="language-"] {
   color: #A5A9B0; }
 
 .token.scope {
-  color: #9de2ba; }
+  color: #cc99cc; }
 
 .token.function {
   color: white; }
@@ -620,7 +681,7 @@ pre[class*="language-"] {
 .token.number,
 .token.constant,
 .token.symbol {
-  color: #905; }
+  color: #ffcc66; }
 
 .token.number {
   color: white; }
@@ -629,7 +690,7 @@ pre[class*="language-"] {
   color: #c5c5c5; }
 
 .token.tag {
-  color: #9de2ba; }
+  color: #cc99cc; }
 
 .token.selector,
 .token.attr-name,
@@ -649,7 +710,7 @@ pre[class*="language-"] {
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #9de2ba; }
+  color: #cc99cc; }
 
 .token.attr-value {
   color: #c5c5c5; }
@@ -11874,7 +11935,7 @@ body {
   font-size: 14px;
   color: #525252;
   font-family: NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,"Microsoft Yahei","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
-  background: #e9eaed; }
+  background: #f0f2f5; }
 
 .navbar-default {
   background-color: #fff; }
@@ -11901,8 +11962,7 @@ body {
 
 .topic-list .media-heading {
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; }
+  overflow: hidden; }
 
 abbr[data-original-title], abbr[title] {
   cursor: none;
@@ -12182,14 +12242,14 @@ embed {
     width: 100%; }
 
 .topics-show .topic-title {
-  font-size: 1.8em;
+  font-size: 25px;
   color: #333;
   text-align: left;
   line-height: 135%;
   margin-bottom: 12px;
-  font-weight: bold; }
+  font-weight: normal; }
 
-.topics-show .panel-body {
+.topics-show .entry-content {
   padding: 22px; }
 
 .topics-show .panel .panel-heading {
@@ -12645,8 +12705,6 @@ div#preview-box {
   .topic-list .list-group-item.media .infos {
     margin-top: 10px;
     margin-left: 56px; }
-  ul.topic-list .list-group-item .avatar {
-    margin-top: -2px; }
   div.topics-index .topic-list .media-heading {
     font-size: 14px; }
   .replies-index .list-group-item.media {
@@ -12714,20 +12772,20 @@ div#preview-box {
   border: none; }
 
 .reply_count_area {
-  width: 70px;
+  width: 200px;
   display: inline-block;
-  text-align: center;
+  text-align: right;
   float: left;
   line-height: 2em;
-  margin-top: 14px; }
+  margin-top: 18px; }
 
 .reply_count_area .count_of_replies {
   text-align: center; }
 
 .reply_count_area .count_seperator {
-  margin: 0 -2px;
+  margin: 0px 4px;
   text-align: center;
-  font-size: 10px; }
+  font-size: 13px; }
 
 .reply_count_area .count_of_visits {
   text-align: center; }
@@ -12788,11 +12846,11 @@ div#preview-box {
 .alert {
   box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset, 0px 0px 0px 0px transparent; }
 
-#reply_notice {
-  background-color: #f9fff3; }
-
 .topics-index .topic-list .media-heading {
   font-size: 15px; }
+
+.topics-index .topic-list .media-heading:hover {
+  cursor: pointer; }
 
 .label-default {
   background-color: #e5e5e5;
@@ -12970,44 +13028,44 @@ span.timeago {
 
 .panel .panel-heading {
   border-bottom: 1px solid #eeeeee;
-  background-color: #f8f8f8; }
+  background-color: #fff; }
 
 .helpblock.list li {
   line-height: 30px;
   margin-bottom: 0px; }
 
-.topic-author-box .list-inline {
-  margin-bottom: 10px; }
-  .topic-author-box .list-inline li {
-    padding-left: 5px;
-    padding-right: 5px;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 2px 6px;
-    margin-left: 6px;
-    font-size: 0.9em;
-    color: #606060;
-    margin-top: 8px; }
-  .topic-author-box .list-inline li:hover {
-    background-color: #00b5ad;
-    color: white;
-    border: 1px solid #17e8df; }
-
-.topic-author-box .media-heading {
-  margin-bottom: 8px; }
-
-.topic-author-box a, .topic-author-box a:hover, .topic-author-box a:focus {
-  color: inherit;
-  text-decoration: none; }
-
-.topic-author-box .img-thumbnail {
-  max-width: inherit; }
-
-.topic-author-box .media-body {
-  padding-top: 8px; }
-
-.topic-author-box .edit-btn {
-  padding-right: 2px; }
+.topic-author-box {
+  position: relative; }
+  .topic-author-box .list-inline {
+    margin-bottom: 10px; }
+    .topic-author-box .list-inline li {
+      padding-left: 5px;
+      padding-right: 5px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 2px 6px;
+      margin-left: 6px;
+      font-size: 0.9em;
+      color: #606060;
+      margin-top: 8px; }
+    .topic-author-box .list-inline li:hover {
+      background-color: #00b5ad;
+      color: white;
+      border: 1px solid #17e8df; }
+  .topic-author-box .media-heading {
+    margin-bottom: 8px; }
+  .topic-author-box a, .topic-author-box a:hover, .topic-author-box a:focus {
+    color: inherit;
+    text-decoration: none; }
+  .topic-author-box .img-thumbnail {
+    max-width: inherit; }
+  .topic-author-box .media-body {
+    padding-top: 8px; }
+  .topic-author-box .edit-btn {
+    padding-right: 2px;
+    position: absolute;
+    top: 20px;
+    right: 20px; }
 
 .image-border {
   padding: 3px;
@@ -13033,7 +13091,8 @@ span.timeago {
   margin-top: 2px; }
 
 .floating-box {
-  margin-top: 120px; }
+  margin-top: 120px;
+  margin-bottom: 80px; }
 
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
   background-color: #00b5ad;
@@ -13049,7 +13108,7 @@ span.timeago {
   width: 100%; }
 
 .topics-index .panel-heading {
-  background-color: #f8f8f8; }
+  background-color: #fff; }
 
 .topics-index .topic-filter {
   margin-top: 8px;
@@ -13196,12 +13255,11 @@ a {
   .markdown-body, .markdown-reply {
     font-size: 14px; }
   .media-body.markdown-reply.content-body {
-    margin-left: -60px;
+    margin-left: 0px;
     display: inline-block;
     width: initial;
-    margin-top: 6px; }
-  .list-group-item.media .infos {
-    margin-top: 0px; }
+    margin-top: 6px;
+    margin-bottom: 8px; }
   .replies-index .list-group-item.media .avatar img {
     margin-top: -6px; }
   .topics-show .ribbon .ribbon-excellent {
@@ -13210,19 +13268,43 @@ a {
   .votes-container.votes-container {
     padding-top: 15px; } }
 
+.topic-list a:hover {
+  text-decoration: none; }
+
+.topic-list .list-group-item:hover {
+  background-color: rgba(0, 181, 173, 0.04); }
+
+.topic-list .infos .media-heading a {
+  padding-left: 2px; }
+
+.topics-index .topic-list .infos .media-heading a {
+  display: inline-block;
+  width: 100%; }
+
 .topic-list .reply_count_area {
-  line-height: inherit;
-  margin-top: inherit; }
+  line-height: inherit; }
 
 .topic-list .count_of_votes {
-  font-size: 20px;
+  font-size: 15px;
   margin-top: 11px;
   color: #9e78c0;
   margin-bottom: -3px; }
 
+.topic-list .count_of_replies {
+  font-size: 15px;
+  margin-top: 11px;
+  color: #bab9bb;
+  margin-bottom: -3px; }
+
+.topic-list .count_of_visits {
+  font-size: 15px;
+  margin-top: 11px;
+  color: #bab9bb;
+  margin-bottom: -3px; }
+
 .topic-list .count_set {
   font-size: 12px;
-  color: #b4b4b4; }
+  color: #bab9bb; }
 
 .payment-qrcode {
   width: 250px;
@@ -13323,10 +13405,6 @@ a.users-label-item {
 a {
   color: #05a1a2; }
 
-a:hover, a:focus {
-  color: inherit;
-  text-decoration: underline; }
-
 .dropdown-menu {
   background-color: #fff;
   color: inherit;
@@ -13394,6 +13472,10 @@ a:hover, a:focus {
   width: 66px;
   height: 66px; }
 
+.avatar-96 {
+  width: 96px;
+  height: 96px; }
+
 .more-excellent-topic-link {
   color: #999;
   font-size: 13px; }
@@ -13454,7 +13536,7 @@ a:hover, a:focus {
 .panel {
   border-radius: 0px;
   box-shadow: none;
-  border: 1px solid #e2e1e1; }
+  border: 1px solid #dde2e8; }
 
 .sidebar-resources ul.list li {
   padding: 5px;
@@ -13504,5 +13586,219 @@ a.anchorific {
 
 .hall_of_fames .site-intro a {
   text-decoration: underline; }
+
+.topbanner {
+  margin-left: -12px;
+  margin-right: -12px; }
+
+.projects-card {
+  padding-left: 12px;
+  padding-right: 12px; }
+  .projects-card .thumbnail {
+    border-radius: 0px;
+    box-shadow: 0 1px 5px #c3c3c3;
+    padding: 0px; }
+  .projects-card .caption {
+    text-align: center; }
+  .projects-card .card-title a {
+    font-size: 1.2em;
+    color: #676464; }
+  .projects-card .card-description {
+    height: 40px;
+    margin-top: 15px;
+    color: #909090; }
+
+#top-navbar-collapse {
+  overflow: visible; }
+
+@media (max-width: 767px) {
+  .projects-card {
+    padding-left: 5px;
+    padding-right: 5px; }
+    .projects-card .thumbnail {
+      margin-bottom: 10px; }
+    .projects-card .caption {
+      text-align: center; }
+    .projects-card h3 {
+      margin-top: 4px;
+      margin-bottom: 0px; }
+    .projects-card .card-title a {
+      font-size: .9em;
+      color: #676464; }
+  .topbanner {
+    margin-left: -5px;
+    margin-right: -5px; } }
+
+.topics-index .topic-list .media-heading {
+  font-size: 15px;
+  padding-top: 18px;
+  padding-left: 8px; }
+
+.editor-toolbar {
+  background-color: #fff; }
+
+.reply-box .CodeMirror, .reply-box .CodeMirror-scroll {
+  min-height: 500px; }
+
+.reply-box .CodeMirror pre {
+  font-size: 14px; }
+
+.articles-create #reply_notice, .articles-edit #reply_notice {
+  margin-bottom: 15px;
+  border: 1px solid #ddd; }
+
+.articles-create .CodeMirror, .articles-create .CodeMirror-scroll, .articles-edit .CodeMirror, .articles-edit .CodeMirror-scroll {
+  min-height: 500px; }
+
+.articles-create .blog-container.container, .articles-edit .blog-container.container {
+  max-width: 980px; }
+
+.blog-container.container {
+  margin-top: 50px; }
+  .blog-container.container h1 {
+    margin: 1.3em auto .9em;
+    font-size: 28px; }
+  .blog-container.container .panel {
+    margin-bottom: 25px; }
+  .blog-container.container .panel .panel-heading {
+    border-bottom: 1px solid #f8f8f8;
+    background-color: #fff; }
+  .blog-container.container .panel .panel-footer {
+    background-color: #fff;
+    padding-right: 0px; }
+  .blog-container.container .article-body {
+    padding: 1em 30px 0; }
+
+hr {
+  border-top: 1px solid #e4e4e4; }
+
+.follow-box {
+  margin: 20px 0 8px; }
+  .follow-box a.btn {
+    color: #fff; }
+
+.blog-cover {
+  margin: 25px 0 15px; }
+
+.blog-name {
+  margin: 0 0 10px; }
+
+.blog-description {
+  font-size: 14px;
+  color: #8a8a8a; }
+
+.post-info-panel {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  padding: 20px 20px 8px;
+  margin: 40px 0px -26px;
+  color: #495057;
+  font-size: 14px; }
+
+.article-meta {
+  margin: 20px 0px 32px;
+  color: #aaa;
+  font-size: 13px; }
+
+.search-results {
+  padding: 20px;
+  line-height: 25px; }
+  .search-results .panel-heading h3 {
+    color: #696969;
+    font-size: 15px;
+    margin-bottom: 12px; }
+  .search-results a {
+    color: #333; }
+  .search-results .result {
+    margin-bottom: 20px; }
+  .search-results .user.result {
+    margin-top: 8px;
+    margin-bottom: 0px; }
+  .search-results .result em {
+    color: #EB5424;
+    font-style: normal; }
+  .search-results .result .title {
+    font-size: 18px; }
+  .search-results .result .title .badge {
+    background: #EBEDEE;
+    color: #9A9DA0;
+    font-weight: normal;
+    font-size: 12px;
+    margin-left: 4px; }
+  .search-results .result .info {
+    margin-bottom: 6px;
+    font-size: 12px; }
+  .search-results .result .info .url a {
+    color: #23863F; }
+  .search-results .result .info .date {
+    color: #999;
+    margin-left: 8px; }
+  .search-results .result .desc {
+    color: #666;
+    font-size: 14px;
+    word-break: break-all; }
+  .search-results .result .desc em {
+    color: #F86334; }
+  .search-results .user .info {
+    margin-top: 4px;
+    font-size: 14px; }
+  .search-results .user .info.number {
+    color: #666;
+    font-size: 13px; }
+  .search-results .highlight {
+    color: #e07b7a; }
+  .search-results .role-label {
+    display: inline-block;
+    position: absolute; }
+    .search-results .role-label a.label {
+      font-size: 85%;
+      font-weight: 100;
+      padding: 0.2em 1em .2em;
+      position: relative;
+      margin: 8px;
+      color: #fff; }
+  .search-results .user-info {
+    padding-top: 8px;
+    padding-left: 8px; }
+  .search-results hr {
+    margin-top: 15px;
+    margin-bottom: 15px; }
+  .search-results .list-panel .panel-body {
+    padding: 0px; }
+
+@media (max-width: 767px) {
+  .blog-pages .left-col {
+    width: 100%;
+    padding-left: 0px; }
+  .blog-container.container {
+    margin-top: 18px; }
+    .blog-container.container .article-body {
+      padding: 1em 5px 0; }
+  .panel .list-group .list-group-item {
+    padding: 0px 8px; }
+  .search-results {
+    padding: 12px 2px 0; }
+  .container.main-container {
+    margin-top: 15px; } }
+
+.replies .list-group-item.media .infos {
+  margin-left: 90px; }
+
+.replies .avatar-container {
+  text-align: center;
+  width: 80px; }
+
+.replies .label.role {
+  padding: .1em .2em .1em;
+  position: inherit;
+  color: #949090;
+  border: 1px solid #e0e0e0;
+  font-weight: normal;
+  display: inline-block;
+  margin: 8px 0;
+  background: transparent; }
+
+.replies .media-object.avatar {
+  display: inline-block; }
 
 /*# sourceMappingURL=styles.css.map */

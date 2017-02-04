@@ -22,10 +22,10 @@
 
   <div class="panel panel-default">
 
-    <div class="panel-body remove-padding-vertically remove-padding-horizontal">
+    <div class="panel-body">
 
       @if (count($topics))
-	      @include('users.partials.topics')
+	      @include('users.partials.topics', ['is_article' => true])
 	      <div class="pull-right add-padding-vertically"> {!! $topics->render() !!} </div>
       @else
         <div class="empty-block">{{ lang('Dont have any votes yet') }}~~</div>

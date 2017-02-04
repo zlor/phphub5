@@ -37,7 +37,8 @@ class UserPresenter extends Presenter
             ->size(200)
             ->errorCorrection('L')
             ->margin(0)
-            ->generate($this->name . ',' . $this->login_token);
+            ->encoding('utf-8')
+            ->generate($this->id . ',' . $this->login_token);
     }
 
     public function userinfoNavActive($anchor)

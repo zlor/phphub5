@@ -98,3 +98,27 @@ function is_request_from_api()
 {
     return $_SERVER['SERVER_NAME'] == env('API_DOMAIN');
 }
+
+function route_class()
+{
+    return str_replace('.', '-', Route::currentRouteName());
+}
+
+function img_crop($filepath, $width = 0, $height = 0)
+{
+    return $filepath . "?imageView2/1/w/{$width}/h/{$height}";
+}
+
+
+function setting($key, $default = '')
+{
+    if ( ! config()->get('settings')) {
+        // Decode the settings to an associative array.
+        $site_settings = json_decode(file_get_contents(storage_path('/administrator_settings/site.json')), true);
+        // Add the site settings to the application configuration
+        config()->set('settings', $site_settings);
+    }
+
+    // Access a setting, supplying a default value
+    return config()->get('settings.'.$key, $default);
+}

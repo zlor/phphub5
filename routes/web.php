@@ -16,6 +16,7 @@ Route::get('/roles/{id}', 'RolesController@show')->name('roles.show');
 
 Route::get('/users/{id}/replies', 'UsersController@replies')->name('users.replies');
 Route::get('/users/{id}/topics', 'UsersController@topics')->name('users.topics');
+Route::get('/users/{id}/articles', 'UsersController@articles')->name('users.articles');
 Route::get('/users/{id}/votes', 'UsersController@votes')->name('users.votes');
 Route::get('/users/{id}/following', 'UsersController@following')->name('users.following');
 Route::get('/users/{id}/followers', 'UsersController@followers')->name('users.followers');
@@ -28,6 +29,8 @@ Route::post('/users/regenerate_login_token', 'UsersController@regenerateLoginTok
 Route::post('/users/follow/{id}', 'UsersController@doFollow')->name('users.doFollow');
 Route::get('/users/{id}/edit_email_notify', 'UsersController@editEmailNotify')->name('users.edit_email_notify');
 Route::post('/users/{id}/update_email_notify', 'UsersController@updateEmailNotify')->name('users.update_email_notify');
+Route::get('/users/{id}/edit_password', 'UsersController@editPassword')->name('users.edit_password');
+Route::patch('/users/{id}/update_password', 'UsersController@updatePassword')->name('users.update_password');
 Route::get('/users/{id}/edit_social_binding', 'UsersController@editSocialBinding')->name('users.edit_social_binding');
 
 Route::get('/users', 'UsersController@index')->name('users.index');
@@ -51,11 +54,13 @@ Route::post('/users/send-verification-mail', 'UsersController@sendVerificationMa
 # ------------------ Authentication ------------------------
 
 Route::get('/login', 'Auth\AuthController@oauth')->name('login');
+Route::get('/auth/login', 'Auth\AuthController@signin')->name('auth.login');
+Route::post('/auth/login', 'Auth\AuthController@postLogin')->name('auth.login');
 Route::get('/login-required', 'Auth\AuthController@loginRequired')->name('login-required');
 Route::get('/admin-required', 'Auth\AuthController@adminRequired')->name('admin-required');
 Route::get('/user-banned', 'Auth\AuthController@userBanned')->name('user-banned');
 Route::get('/signup', 'Auth\AuthController@create')->name('signup');
-Route::post('/signup', 'Auth\AuthController@store')->name('signup');
+Route::post('/signup', 'Auth\AuthController@createNewUser')->name('signup');
 Route::get('/logout', 'Auth\AuthController@logout')->name('logout');
 Route::get('/oauth', 'Auth\AuthController@getOauth');
 
@@ -120,3 +125,19 @@ Route::get('/github-card', 'UsersController@githubCard')->name('users.github-car
 Route::group(['middleware' => ['auth', 'admin_auth']], function () {
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 });
+
+# ------------------ Blogs ------------------------
+
+Route::get('/blogs', 'BlogsController@index')->name('blogs.index');
+Route::get('/blogs/create', 'BlogsController@create')->name('blogs.create')->middleware('verified_email');
+Route::post('/blogs', 'BlogsController@store')->name('blogs.store')->middleware('verified_email');
+Route::get('/blogs/edit', 'BlogsController@edit')->name('blogs.edit');
+Route::patch('/blogs/{id}', 'BlogsController@update')->name('blogs.update');
+
+// Article
+Route::get("/articles/create", "ArticlesController@create")->name('articles.create')->middleware('verified_email');
+Route::patch("/topics/{id}/transform", "ArticlesController@transform")->name('articles.transform');
+Route::post("/articles", "ArticlesController@store")->name('articles.store')->middleware('verified_email');
+Route::get("/articles/{id}/edit", "ArticlesController@edit")->name('articles.edit');
+
+Route::get('/articles/{id}', "TopicsController@show")->name('articles.show');

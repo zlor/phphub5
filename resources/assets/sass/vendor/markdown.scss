@@ -1,4 +1,4 @@
-.markdown-body, .markdown-reply {
+.editor-preview-active-side, .editor-preview, .markdown-body, .markdown-reply {
 
     font-size: 16px;
 
@@ -187,7 +187,6 @@
     position: relative;
     margin-top: 1.0em;
     margin-bottom: 16px;
-    font-weight: bold;
     line-height: 1.4;
   }
 
@@ -195,31 +194,31 @@
     padding-bottom: 0.3em;
     font-size: 2.25em;
     line-height: 1.2;
-    border-bottom: 2px solid #eee;
+    border-bottom: 1px solid #eee;
   }
 
   h2 {
     padding-bottom: 0.3em;
-    font-size: 1.5em;
+    font-size: 1.3em;
     line-height: 1.225;
-    border-bottom: 2px solid #eee;
+    border-bottom: 1px solid #eee;
   }
 
   h3 {
-    font-size: 1.4em;
+    font-size: 1.2em;
     line-height: 1.43;
   }
 
   h4 {
-    font-size: 1.3em;
+    font-size: 1.1em;
   }
 
   h5 {
-    font-size: 1.2em;
+    font-size: 1.0em;
   }
 
   h6 {
-    font-size: 1.1em;
+    font-size: 0.9em;
     color: #777;
   }
 
@@ -237,16 +236,18 @@
   }
 
   hr {
-    height: 4px;
+    height: 2px;
     padding: 0;
     margin: 16px 0;
-    background-color: #e7e7e7;
+    background-color: #e8ecef;
     border: 0 none;
   }
 
   ul,
   ol {
     padding-left: 2em;
+    padding: 10px 20px 10px 30px;
+    color: #7d8688;
   }
 
   ol ol,
@@ -293,8 +294,10 @@
 
   blockquote {
     margin: 20px 0!important;
-    background-color: #f7f7f7;
-    padding: 6px 8px;
+    background-color: #f5f8fc;
+    padding: 1rem;
+    color: #8796A8;
+    border-left: none;
   }
 
   table {

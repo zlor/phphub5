@@ -20,7 +20,7 @@ ______                            _              _                              
 
 		<meta charset="UTF-8">
 
-		<title>@section('title')Laravel China 社区 - 靠谱的 Laravel 和 PHP 开发者社区@show - Powered by PHPHub</title>
+		<title>@section('title')Laravel China 社区 - 高品质的 Laravel 和 PHP 开发者社区@show - Powered by PHPHub</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 
@@ -39,6 +39,8 @@ ______                            _              _                              
                 'user_id': {{ $currentUser ? $currentUser->id : 0 }},
                 'user_avatar': {!! $currentUser ? '"'.$currentUser->present()->gravatar() . '"' : '""' !!},
                 'user_link': {!! $currentUser ? '"'. route('users.show', $currentUser->id) . '"' : '""' !!},
+                'user_badge': '{{ $currentUser ? ($currentUser->present()->hasBadge() ? $currentUser->present()->badgeName() : '') : '' }}',
+                'user_badge_link': "{{ $currentUser ? (route('roles.show', [$currentUser->present()->badgeID()])) : '' }}",
                 'routes': {
                     'notificationsCount' : '{{ route('notifications.count') }}',
                     'upload_image' : '{{ route('upload_image') }}'
@@ -56,19 +58,30 @@ ______                            _              _                              
 		<meta http-equiv="x-pjax-version" content="{{ elixir('assets/css/styles.css') }}">
 
 	</head>
-	<body id="body">
+	<body id="body" class="{{ route_class() }}">
+
+        {{-- Wechat share cover --}}
+        <div style="display: none;"
+        　　document.getElementById("typediv1").style.display="none";>
+            <img src="https://dn-phphub.qbox.me/uploads/images/201701/29/1/pQimFCe1r5.png" >
+        </div>
 
 		<div id="wrap">
 
 			@include('layouts.partials.nav')
 
-			<div class="container main-container">
+			<div class="container main-container {{ (Request::is('blogs*') || Request::is('articles*')) ? 'blog-container' : '' }}">
 
-				@if(\Auth::check() && !\Auth::user()->verified && !Request::is('email-verification-required'))
-				<div class="alert alert-warning">
-		            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-		            邮箱未激活，请前往 {{ \Auth::user()->email }} 查收激活邮件，激活后才能完整地使用社区功能，如发帖和回帖。未收到邮件？请前往 <a href="{{ route('email-verification-required') }}">重发邮件</a> 。
-		        </div>
+				@if(Auth::check() && !Auth::user()->verified && !Request::is('email-verification-required'))
+    				<div class="alert alert-warning">
+    		            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    		            邮箱未激活，请前往 {{ Auth::user()->email }} 查收激活邮件，激活后才能完整地使用社区功能，如发帖和回帖。未收到邮件？请前往 <a href="{{ route('email-verification-required') }}">重发邮件</a> 。
+    		        </div>
+                @elseif (Auth::check() && empty(Auth::user()->password) )
+                    <div class="alert alert-warning">
+    		            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    		            未设置登录密码，请前往 <a href="{{ route('users.edit_password', [Auth::id()]) }}">修改密码</a> 页面进行设置。设置后将可以在移动设备上使用邮箱登录网站。
+    		        </div>
 				@endif
 
 				@include('flash::message')

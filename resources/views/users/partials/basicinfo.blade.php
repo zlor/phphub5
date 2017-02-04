@@ -6,7 +6,6 @@
         <div class="media">
             <div class="media-left">
               <div class="image">
-
                   @if ($currentUser && $currentUser->id == $user->id)
                   <a href="{{ route('users.edit_avatar', $user->id) }}" class="popover-with-html" data-content="修改头像">
                       <img class="media-object avatar-112 avatar img-thumbnail" src="{{ $user->present()->gravatar(200) }}">
@@ -56,12 +55,12 @@
               <a class="text" href="{{ route('users.followers', $user->id) }}">关注者</a>
             </div>
             <div class="col-xs-4">
-                <a class="counter" href="{{ route('users.replies', $user->id) }}">{{ $user->reply_count }}</a>
-                <a class="text" href="{{ route('users.replies', $user->id) }}">评论</a>
+                <a class="counter" href="{{ route('users.replies', $user->id) }}">{{ $user->reply_count +  $user->topic_count}}</a>
+                <a class="text" href="{{ route('users.replies', $user->id) }}">讨论</a>
             </div>
             <div class="col-xs-4">
-                <a class="counter" href="{{ route('users.topics', $user->id) }}">{{ $user->topic_count }}</a>
-                <a class="text" href="{{ route('users.topics', $user->id) }}">话题</a>
+                <a class="counter" href="{{ route('users.articles', $user->id) }}">{{ $user->article_count }}</a>
+                <a class="text" href="{{ route('users.topics', $user->id) }}">文章</a>
             </div>
         </div>
 
@@ -152,10 +151,6 @@
           </a>
         @endif
 
-        {{-- @if(Auth::check() && Auth::id() == $user->id)
-          @include('users.partials.login_QR')
-        @endif --}}
-
     </div>
 
 </div>
@@ -164,6 +159,10 @@
 
    <div class="padding-sm user-basic-nav">
        <ul class="list-group">
+             <a href="{{ route('users.articles', $user->id) }}" class="{{ navViewActive('users.articles') }}">
+                 <li class="list-group-item"><i class="text-md fa fa-headphones"></i> Ta 发布的文章</li>
+             </a>
+
              <a href="{{ route('users.topics', $user->id) }}" class="{{ navViewActive('users.topics') }}">
                  <li class="list-group-item"><i class="text-md fa fa-list-ul"></i> Ta 发布的话题</li>
              </a>

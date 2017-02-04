@@ -11,6 +11,7 @@ use Cache;
 use Auth;
 use Flash;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\ResetPasswordRequest;
 use App\Jobs\SendActivateMail;
 use Phphub\Handler\Exception\ImageUploadException;
 
@@ -18,13 +19,11 @@ class UsersController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', [
-            'only' => [
-                'edit', 'update', 'destroy',
-                'doFollow', 'editAvatar', 'updateAvatar',
-                'editEmailNotify', 'updateEmailNotify', 'emailVerificationRequired',
-            ],
-        ]);
+        $this->middleware('auth', ['except' => [
+                'index', 'show', 'replies',
+                 'topics', 'articles', 'votes', 'following',
+                 'followers', 'githubCard', 'githubApiProxy',
+            ]]);
     }
 
     public function index()
@@ -37,9 +36,11 @@ class UsersController extends Controller
     public function show($id)
     {
         $user    = User::findOrFail($id);
-        $topics  = Topic::whose($user->id)->withoutBoardTopics()->recent()->limit(20)->get();
+        $topics  = Topic::whose($user->id)->withoutArticle()->withoutBoardTopics()->recent()->limit(20)->get();
+        $articles  = Topic::whose($user->id)->onlyArticle()->withoutBoardTopics()->recent()->limit(20)->get();
+        $blog  = $user->blogs()->first();
         $replies = Reply::whose($user->id)->recent()->limit(20)->get();
-        return view('users.show', compact('user', 'topics', 'replies'));
+        return view('users.show', compact('user','blog', 'articles', 'topics', 'replies'));
     }
 
     public function edit($id)
@@ -64,10 +65,6 @@ class UsersController extends Controller
         return redirect(route('users.edit', $id));
     }
 
-    public function destroy($id)
-    {
-    }
-
     public function replies($id)
     {
         $user    = User::findOrFail($id);
@@ -79,15 +76,23 @@ class UsersController extends Controller
     public function topics($id)
     {
         $user   = User::findOrFail($id);
-        $topics = Topic::whose($user->id)->withoutBoardTopics()->recent()->paginate(15);
+        $topics = Topic::whose($user->id)->withoutArticle()->withoutBoardTopics()->recent()->paginate(30);
 
         return view('users.topics', compact('user', 'topics'));
+    }
+
+    public function articles($id)
+    {
+        $user   = User::findOrFail($id);
+        $topics = Topic::whose($user->id)->onlyArticle()->withoutBoardTopics()->recent()->paginate(30);
+        $blog   = $user->blogs()->first();
+        return view('users.articles', compact('user','blog', 'topics'));
     }
 
     public function votes($id)
     {
         $user   = User::findOrFail($id);
-        $topics = $user->votedTopics()->orderBy('pivot_created_at', 'desc')->paginate(15);
+        $topics = $user->votedTopics()->orderBy('pivot_created_at', 'desc')->paginate(30);
 
         return view('users.votes', compact('user', 'topics'));
     }
@@ -173,6 +178,27 @@ class UsersController extends Controller
         return redirect(route('users.edit_email_notify', $id));
     }
 
+    public function editPassword($id)
+    {
+        $user = User::findOrFail($id);
+        $this->authorize('update', $user);
+
+        return view('users.edit_password', compact('user'));
+    }
+
+    public function updatePassword($id, ResetPasswordRequest $request)
+    {
+        $user = User::findOrFail($id);
+        $this->authorize('update', $user);
+
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        Flash::success(lang('Operation succeeded.'));
+
+        return redirect(route('users.edit_password', $id));
+    }
+
     public function githubApiProxy($username)
     {
         $cache_name = 'github_api_proxy_user_' . $username;
@@ -216,7 +242,7 @@ class UsersController extends Controller
         $user->update(['follower_count' => $user->followers()->count()]);
         Flash::success(lang('Operation succeeded.'));
 
-        return redirect(route('users.show', $id));
+        return redirect()->back();
     }
 
     public function editAvatar($id)

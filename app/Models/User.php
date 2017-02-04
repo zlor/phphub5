@@ -17,13 +17,22 @@ use App\Models\Traits\UserSocialiteHelper;
 use App\Models\Traits\UserAvatarHelper;
 use Carbon\Carbon;
 use Cache;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract
 {
     use UserRememberTokenHelper,UserSocialiteHelper,UserAvatarHelper;
+
     use PresentableTrait;
     public $presenter = 'Phphub\Presenters\UserPresenter';
+
+    use SearchableTrait;
+    protected $searchable = [
+        'columns' => [
+            'users.name' => 10,
+        ],
+    ];
 
     // For admin log
     use RevisionableTrait;
@@ -91,6 +100,11 @@ class User extends Model implements AuthenticatableContract,
     public function topics()
     {
         return $this->hasMany(Topic::class);
+    }
+
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class);
     }
 
     public function replies()

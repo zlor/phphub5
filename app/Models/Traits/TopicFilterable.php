@@ -84,6 +84,15 @@ trait TopicFilterable
         return $query->where('user_id', '=', $user_id)->with('category');
     }
 
+    public function scopeOnlyArticle($query)
+    {
+        return $query->where('category_id', '=', config('phphub.blog_category_id'));
+    }
+    public function scopeWithoutArticle($query)
+    {
+        return $query->where('category_id', '!=', config('phphub.blog_category_id'));
+    }
+
     public function scopeRecent($query)
     {
         return $query->orderBy('created_at', 'desc');
@@ -155,4 +164,3 @@ trait TopicFilterable
         }
     }
 }
-

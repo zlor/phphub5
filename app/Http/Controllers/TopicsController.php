@@ -18,6 +18,7 @@ use App\Http\Requests\StoreTopicRequest;
 use Auth;
 use Flash;
 use Image;
+use Request as UserRequest;
 
 class TopicsController extends Controller implements CreatorListener
 {
@@ -42,7 +43,7 @@ class TopicsController extends Controller implements CreatorListener
     public function create(Request $request)
     {
         $category = Category::find($request->input('category_id'));
-        $categories = Category::all();
+        $categories = Category::where('id', '!=', config('phphub.blog_category_id'))->get();
 
         return view('topics.create_edit', compact('categories', 'category'));
     }
@@ -57,8 +58,12 @@ class TopicsController extends Controller implements CreatorListener
         $topic = Topic::where('id', $id)->with('user', 'lastReplyUser')->firstOrFail();
 
         if ($topic->user->is_banned == 'yes') {
-            Flash::error('你访问的文章已被屏蔽，有疑问请发邮件：all@estgroupe.com');
-            return redirect(route('topics.index'));
+            // 未登录，或者已登录但是没有管理员权限
+            if (!Auth::check() || (Auth::check() && !Auth::user()->may('manage_topics'))) {
+                Flash::error('你访问的文章已被屏蔽，有疑问请发邮件：all@estgroupe.com');
+                return redirect(route('topics.index'));
+            }
+            Flash::error('当前文章的作者已被屏蔽，游客与用户将看不到此文章。');
         }
 
         if (
@@ -67,7 +72,7 @@ class TopicsController extends Controller implements CreatorListener
             && (!Auth::check() || !Auth::user()->can('access_board'))
         ) {
             Flash::error('您没有权限访问该文章，有疑问请发邮件：all@estgroupe.com');
-            return redirect(route('topics.index'));
+            return redirect()->route('topics.index');
         }
 
         $randomExcellentTopics = $topic->getRandomExcellent();
@@ -79,17 +84,32 @@ class TopicsController extends Controller implements CreatorListener
         $topic->increment('view_count', 1);
 
         $banners  = Banner::allByPosition();
-        return view('topics.show', compact(
-                            'topic', 'replies', 'categoryTopics',
-                            'category', 'banners', 'randomExcellentTopics',
-                            'votedUsers', 'userTopics', 'revisionHistory'));
+
+        if ($topic->isArticle()) {
+
+            if (UserRequest::is('topics*')) {
+                return redirect()->route('articles.show', [$topic->id]);
+            }
+
+            $user = $topic->user;
+            $blog = $user->blogs()->first();
+            return view('articles.show', compact(
+                                'blog', 'user','topic', 'replies', 'categoryTopics',
+                                'category', 'banners', 'randomExcellentTopics',
+                                'votedUsers', 'userTopics', 'revisionHistory'));
+        } else {
+            return view('topics.show', compact(
+                                'topic', 'replies', 'categoryTopics',
+                                'category', 'banners', 'randomExcellentTopics',
+                                'votedUsers', 'userTopics', 'revisionHistory'));
+        }
     }
 
     public function edit($id)
     {
         $topic = Topic::findOrFail($id);
         $this->authorize('update', $topic);
-        $categories = Category::all();
+        $categories = Category::where('id', '!=', config('phphub.blog_category_id'))->get();
         $category = $topic->category;
 
         $topic->body = $topic->body_original;
@@ -131,7 +151,10 @@ class TopicsController extends Controller implements CreatorListener
         $topic->update($data);
 
         Flash::success(lang('Operation succeeded.'));
-        return redirect(route('topics.show', $topic->id));
+
+        $route = $topic->isArticle() ? 'articles.show' : 'topics.show';
+
+        return redirect()->route($route, $topic->id);
     }
 
     /**
@@ -202,7 +225,13 @@ class TopicsController extends Controller implements CreatorListener
         $topic->delete();
         Flash::success(lang('Operation succeeded.'));
 
-        return redirect(route('topics.index'));
+        if ($topic->isArticle()) {
+            Auth::user()->decrement('article_count', 1);
+        } else {
+            Auth::user()->decrement('topic_count', 1);
+        }
+
+        return redirect()->route('topics.index');
     }
 
     public function uploadImage(Request $request)
